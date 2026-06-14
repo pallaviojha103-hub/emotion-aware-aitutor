@@ -1,0 +1,317 @@
+{
+  "meta": {
+    "generatedBy": "GitHub Copilot",
+    "description": "Comprehensive question bank with options, correct answers, explanations, difficulty and tags. Designed for the AuraTutor quiz widget.",
+    "version": "1.0"
+  },
+  "questions": [
+    {
+      "id": "q-001",
+      "topic": "Quantum Physics",
+      "type": "mcq",
+      "difficulty": "medium",
+      "question": "If a qubit is in the state |\u03c8> = (1/\u221a2)|0> + (1/\u221a2)|1>, what is the probability of measuring |1>?,",
+      "options": ["0%","25%","50%","100%"],
+      "correctIndex": 2,
+      "explanation": "The amplitude for |1> is 1/\u221a2; probability = |1/\u221a2|^2 = 1/2 = 50%.",
+      "tags": ["superposition","born-rule"]
+    },
+    {
+      "id": "q-002",
+      "topic": "Quantum Physics",
+      "type": "mcq",
+      "difficulty": "hard",
+      "question": "Which principle states that position and momentum cannot be simultaneously measured with arbitrary precision?",
+      "options": ["Pauli Exclusion Principle","Heisenberg Uncertainty Principle","Bohr Correspondence Principle","Born Rule"],
+      "correctIndex": 1,
+      "explanation": "Heisenberg's Uncertainty Principle quantifies the trade-off between precision of position and momentum measurements.",
+      "tags": ["uncertainty","foundations"]
+    },
+    {
+      "id": "q-003",
+      "topic": "Machine Learning",
+      "type": "mcq",
+      "difficulty": "medium",
+      "question": "Which activation function is most commonly used to mitigate the vanishing gradient problem in deep networks?",
+      "options": ["Sigmoid","Tanh","ReLU","Softmax"],
+      "correctIndex": 2,
+      "explanation": "ReLU does not saturate for positive inputs and has gradient 1 for x>0, helping gradients flow backward.",
+      "tags": ["optimization","activations"]
+    },
+    {
+      "id": "q-004",
+      "topic": "Machine Learning",
+      "type": "mcq",
+      "difficulty": "hard",
+      "question": "In the attention formula Attention(Q,K,V) = softmax(QK^T / sqrt(d_k)) V, what is the role of sqrt(d_k)?",
+      "options": ["Normalize Q and K magnitudes","Scale logits to avoid large dot-products","Serve as a learning rate","Enforce orthogonality"],
+      "correctIndex": 1,
+      "explanation": "Dividing by sqrt(d_k) prevents dot products from growing large with higher dimension, stabilizing softmax gradients.",
+      "tags": ["transformers","attention"]
+    },
+    {
+      "id": "q-005",
+      "topic": "JavaScript",
+      "type": "mcq",
+      "difficulty": "easy",
+      "question": "Which JavaScript mechanism ensures callbacks are executed after the call stack is empty?",
+      "options": ["Garbage Collector","Event Loop","Web Worker","Prototype Chain"],
+      "correctIndex": 1,
+      "explanation": "The Event Loop monitors the Call Stack and Callback Queue, moving tasks when the stack is empty.",
+      "tags": ["runtime","event-loop"]
+    },
+    {
+      "id": "q-006",
+      "topic": "Algorithms",
+      "type": "mcq",
+      "difficulty": "medium",
+      "question": "What is the worst-case time complexity of Quick Sort?",
+      "options": ["O(n)","O(n log n)","O(n^2)","O(log n)"],
+      "correctIndex": 2,
+      "explanation": "Quick Sort degrades to O(n^2) when the pivot repeatedly produces highly unbalanced partitions (e.g., sorted input with poor pivot choice).",
+      "tags": ["sorting","complexity"]
+    },
+    {
+      "id": "q-007",
+      "topic": "Algorithms",
+      "type": "mcq",
+      "difficulty": "easy",
+      "question": "Which data structure uses FIFO order?",
+      "options": ["Stack","Queue","Tree","Graph"],
+      "correctIndex": 1,
+      "explanation": "Queue stands for First-In-First-Out ordering.",
+      "tags": ["data-structures"]
+    },
+    {
+      "id": "q-008",
+      "topic": "Neuromorphic Computing",
+      "type": "mcq",
+      "difficulty": "medium",
+      "question": "What does LIF stand for in spiking neuron models?",
+      "options": ["Linear Integrate-and-Fire","Leaky Integrate-and-Fire","Logistic Integrate-and-Fire","Layered Integrate-and-Fire"],
+      "correctIndex": 1,
+      "explanation": "LIF = Leaky Integrate-and-Fire; it models membrane leakage alongside integration.",
+      "tags": ["neurons","spiking"]
+    },
+    {
+      "id": "q-009",
+      "topic": "General Knowledge",
+      "type": "mcq",
+      "difficulty": "easy",
+      "question": "What is the capital city of France?",
+      "options": ["Rome","Berlin","Paris","Madrid"],
+      "correctIndex": 2,
+      "explanation": "Paris is the capital of France.",
+      "tags": ["geography"]
+    },
+    {
+      "id": "q-010",
+      "topic": "General Knowledge",
+      "type": "mcq",
+      "difficulty": "easy",
+      "question": "Which is the largest animal on Earth?",
+      "options": ["Elephant","Blue Whale","Giraffe","Hippopotamus"],
+      "correctIndex": 1,
+      "explanation": "The Blue Whale is the largest animal known to have ever existed.",
+      "tags": ["biology"]
+    },
+    {
+      "id": "q-011",
+      "topic": "Programming",
+      "type": "mcq",
+      "difficulty": "medium",
+      "question": "Which language is primarily used for Android native app development (historically)?",
+      "options": ["Swift","Kotlin","Java","C#"],
+      "correctIndex": 2,
+      "explanation": "Historically Java was the main language for Android; Kotlin is now recommended but Java remains primary historically.",
+      "tags": ["mobile","java"]
+    },
+    {
+      "id": "q-012",
+      "topic": "Web",
+      "type": "mcq",
+      "difficulty": "medium",
+      "question": "In web performance, which resource blocking can delay first paint the most?",
+      "options": ["Images","CSS","Fonts","Cookies"],
+      "correctIndex": 1,
+      "explanation": "Render-blocking CSS can delay page rendering until it is downloaded and parsed.",
+      "tags": ["performance","web"]
+    },
+    {
+      "id": "q-013",
+      "topic": "Math",
+      "type": "mcq",
+      "difficulty": "easy",
+      "question": "What is the derivative of sin(x)?",
+      "options": ["cos(x)","-cos(x)","sin(x)","-sin(x)"],
+      "correctIndex": 0,
+      "explanation": "d/dx sin(x) = cos(x).",
+      "tags": ["calculus"]
+    },
+    {
+      "id": "q-014",
+      "topic": "Physics",
+      "type": "mcq",
+      "difficulty": "medium",
+      "question": "Which equation represents the condition for projectile motion neglecting air resistance?",
+      "options": ["F = ma","s = ut + 0.5at^2","pV = nRT","E = mc^2"],
+      "correctIndex": 1,
+      "explanation": "s = ut + (1/2)at^2 is the kinematic relation for displacement with constant acceleration.",
+      "tags": ["kinematics"]
+    },
+    {
+      "id": "q-015",
+      "topic": "Databases",
+      "type": "mcq",
+      "difficulty": "medium",
+      "question": "Which SQL clause is used to filter rows returned by a SELECT query?",
+      "options": ["WHERE","GROUP BY","ORDER BY","HAVING"],
+      "correctIndex": 0,
+      "explanation": "The WHERE clause filters rows before grouping or ordering.",
+      "tags": ["sql"]
+    },
+    {
+      "id": "q-016",
+      "topic": "Security",
+      "type": "mcq",
+      "difficulty": "medium",
+      "question": "What does 'SQL Injection' exploit?",
+      "options": ["Weak passwords","Unsanitized input","Encryption flaws","Open ports"],
+      "correctIndex": 1,
+      "explanation": "SQL injection occurs when untrusted input is embedded into SQL statements without proper sanitization.",
+      "tags": ["web-security"]
+    },
+    {
+      "id": "q-017",
+      "topic": "Probability",
+      "type": "mcq",
+      "difficulty": "medium",
+      "question": "If two fair coins are flipped, what is the probability of getting exactly one head?",
+      "options": ["1/4","1/2","3/4","2/3"],
+      "correctIndex": 1,
+      "explanation": "Outcomes: HH, HT, TH, TT — exactly one head occurs in HT and TH → 2/4 = 1/2.",
+      "tags": ["probability"]
+    },
+    {
+      "id": "q-018",
+      "topic": "Linux",
+      "type": "mcq",
+      "difficulty": "easy",
+      "question": "Which command lists files in a directory in Linux?",
+      "options": ["ls","dir","list","show"],
+      "correctIndex": 0,
+      "explanation": "`ls` lists directory contents in Unix-like systems.",
+      "tags": ["cli"]
+    },
+    {
+      "id": "q-019",
+      "topic": "Python",
+      "type": "mcq",
+      "difficulty": "easy",
+      "question": "Which keyword defines a function in Python?",
+      "options": ["func","def","function","lambda"],
+      "correctIndex": 1,
+      "explanation": "`def` is used to declare functions in Python.",
+      "tags": ["python"]
+    },
+    {
+      "id": "q-020",
+      "topic": "General Knowledge",
+      "type": "mcq",
+      "difficulty": "easy",
+      "question": "Which continent is the largest by land area?",
+      "options": ["Africa","Asia","Antarctica","Europe"],
+      "correctIndex": 1,
+      "explanation": "Asia is the largest continent by land area.",
+      "tags": ["geography"]
+    },
+    {
+      "id": "q-021",
+      "topic": "Algorithms",
+      "type": "mcq",
+      "difficulty": "hard",
+      "question": "Dijkstra's algorithm solves which problem?",
+      "options": ["Minimum spanning tree","Shortest path from one source to all nodes","Topological sort","Network flow"],
+      "correctIndex": 1,
+      "explanation": "Dijkstra's algorithm finds shortest path distances from a single source to all vertices in a weighted graph with non-negative weights.",
+      "tags": ["graphs"]
+    },
+    {
+      "id": "q-022",
+      "topic": "Machine Learning",
+      "type": "mcq",
+      "difficulty": "hard",
+      "question": "Which loss is typically used for multi-class classification with neural networks?",
+      "options": ["Mean Squared Error","Binary Cross Entropy","Categorical Cross Entropy","Hinge Loss"],
+      "correctIndex": 2,
+      "explanation": "Categorical Cross Entropy is used for multi-class classification with softmax outputs.",
+      "tags": ["losses"]
+    },
+    {
+      "id": "q-023",
+      "topic": "Web",
+      "type": "mcq",
+      "difficulty": "medium",
+      "question": "Which HTML element is used to include JavaScript code?",
+      "options": ["<script>","<js>","<code>","<javascript>"],
+      "correctIndex": 0,
+      "explanation": "`<script>` tags include or reference JavaScript in HTML.",
+      "tags": ["html","web"]
+    },
+    {
+      "id": "q-024",
+      "topic": "Data Science",
+      "type": "mcq",
+      "difficulty": "medium",
+      "question": "Which Python library is primarily used for data manipulation with DataFrame objects?",
+      "options": ["NumPy","pandas","matplotlib","scikit-learn"],
+      "correctIndex": 1,
+      "explanation": "`pandas` provides the DataFrame abstraction for tabular data manipulation.",
+      "tags": ["python","data"]
+    },
+    {
+      "id": "q-025",
+      "topic": "Security",
+      "type": "mcq",
+      "difficulty": "hard",
+      "question": "What is the main purpose of a Content Security Policy (CSP) header?",
+      "options": ["Encrypt traffic","Control allowed content sources to mitigate XSS","Authenticate users","Rate-limit requests"],
+      "correctIndex": 1,
+      "explanation": "CSP restricts the domains and resources the browser may load, mitigating cross-site scripting and related attacks.",
+      "tags": ["web-security","csp"]
+    },
+    {
+      "id": "q-026",
+      "topic": "General Knowledge",
+      "type": "mcq",
+      "difficulty": "easy",
+      "question": "Which language was used to create Facebook originally?",
+      "options": ["C++","PHP","Python","Ruby"],
+      "correctIndex": 1,
+      "explanation": "Early Facebook was built using PHP.",
+      "tags": ["history","web"]
+    },
+    {
+      "id": "q-027",
+      "topic": "Probability",
+      "type": "mcq",
+      "difficulty": "hard",
+      "question": "What is the expected value of a fair six-sided die?",
+      "options": ["3","3.5","4","2.5"],
+      "correctIndex": 1,
+      "explanation": "Expected value = (1+2+3+4+5+6)/6 = 21/6 = 3.5.",
+      "tags": ["statistics"]
+    },
+    {
+      "id": "q-028",
+      "topic": "Python",
+      "type": "mcq",
+      "difficulty": "medium",
+      "question": "Which built-in type is immutable in Python?",
+      "options": ["list","dict","set","tuple"],
+      "correctIndex": 3,
+      "explanation": "Tuples are immutable, while lists, dicts and sets are mutable.",
+      "tags": ["python"]
+    }
+  ]
+}

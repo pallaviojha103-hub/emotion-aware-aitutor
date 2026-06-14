@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZENITH AI | Emotion-Adaptive Learning Ecosystem</title>
+  
+  <!-- Google Fonts: Outfit (Body) & Space Grotesk (HUD Title) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  
+  <!-- MathJax for rendering complex LaTeX formulas offline/online -->
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script" async></script>
+  
+  <link rel="stylesheet" href="/src/style.css">
+</head>
+<body>
+  <!-- Cybernetic Backdrop elements -->
+  <div class="bg-grid"></div>
+  <div class="bg-glow"></div>
+
+  <div class="hud-container">
+    
+    <!-- TOP HEADER -->
+    <header class="hud-header">
+      <div class="header-logo">
+        <span class="logo-accent">//</span>
+        <h1>ZENITH AI</h1>
+        <span class="logo-sub">EMOTION-ADAPTIVE LEARNING PLATFORM v2.4</span>
+      </div>
+      
+      <div class="header-status">
+        <div class="status-indicator">
+          <span class="status-dot pulsing"></span>
+          <span class="status-text" id="camera-status-text">CAMERA: INITIALIZING</span>
+        </div>
+        <div class="status-item">
+          <span class="status-label">STUDENT STANDING:</span>
+          <span class="status-value text-cyan" id="user-xp-display">0 XP</span>
+        </div>
+        <div class="status-item">
+          <span class="status-label">FOCUS STATE:</span>
+          <span class="status-value text-green" id="hud-focus-summary">85%</span>
+        </div>
+        <div class="status-item quiz-hud-controls" style="display:flex; align-items:center; gap:10px;">
+          <label class="status-label" for="global-quiz-difficulty">Quiz:</label>
+          <select id="global-quiz-difficulty" class="hud-select" style="padding:4px 6px; font-size:0.85rem;">
+            <option value="any">Any</option>
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+          </select>
+          <button class="hud-btn btn-outline" id="quiz-shuffle-btn" style="padding:6px 8px;">Shuffle</button>
+          <span class="status-value text-muted" id="quiz-count">0 Q</span>
+          <button class="hud-btn btn-yellow" id="quiz-timer-toggle" style="padding:6px 8px;">Start Timer</button>
+          <span class="status-value text-yellow" id="quiz-timer-display">00:00</span>
+        </div>
+        <div class="status-item">
+          <span class="status-label">SESSION UPTIME:</span>
+          <span class="status-value text-yellow" id="uptime-counter">00:00:00</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- CONTENT DASHBOARD GRID -->
+    <main class="hud-grid">
+      
+      <!-- LEFT COLUMN: AuraTutor Interactive Adaptive Chatbot -->
+      <section class="hud-card" id="tutor-card">
+        <div class="card-header">
+          <div class="card-title">
+            <span class="title-icon">👩‍🏫</span>
+            <h2>AURATUTOR COGNITIVE COMPANION</h2>
+          </div>
+          <div class="card-tag">ADAPTIVE CORE</div>
+        </div>
+        
+        <!-- Topic tab selections -->
+        <div class="topic-bar">
+          <span class="topic-bar-label">SELECT CURRENT LESSON:</span>
+          <div class="topic-tabs" id="topic-tabs"></div>
+          <div class="subject-selector">
+            <select id="subject-select" class="hud-select topic-select"></select>
+          </div>
+        </div>
+
+        <div class="card-body chat-body-wrapper">
+          <!-- Chat logs container -->
+          <div class="chat-logs" id="chat-logs">
+            <!-- Messages are injected here dynamically -->
+          </div>
+
+          <!-- Chat bottom input controls -->
+          <div class="chat-controls-bar">
+            <!-- Style overrides and checkboxes -->
+            <div class="controls-meta-row">
+              <div class="meta-item">
+                <label for="tutor-style-select">Override Style:</label>
+                <select id="tutor-style-select" class="hud-select">
+                  <option value="DEEP_DIVE">Deep Dive (Mathematical)</option>
+                  <option value="ELI5">ELI5 (Metaphorical/Visual)</option>
+                  <option value="GAMIFIED">Socratic (Interactive Quiz)</option>
+                </select>
+              </div>
+              <div class="meta-item toggle-item">
+                <label class="switch">
+                  <input type="checkbox" id="auto-adapt-checkbox" checked>
+                  <span class="slider round"></span>
+                </label>
+                <span class="toggle-label-text">Auto-Adapt via Face Scan</span>
+              </div>
+            </div>
+
+            <!-- Input field -->
+            <div class="chat-input-wrapper">
+              <textarea id="chat-input-field" placeholder="Ask AuraTutor to explain a concept in detail or ask a question..." rows="1"></textarea>
+              <button class="hud-btn btn-cyan" id="chat-send-btn">SEND QUERY</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- RIGHT COLUMN: Webcam Face Mesh + Metrics & Adaptive Study Planner -->
+      <div class="right-column-split">
+        
+        <!-- TOP CARD: Facial Scanner Diagnostics -->
+        <section class="hud-card" id="scanner-card">
+          <div class="card-header">
+            <div class="card-title">
+              <span class="title-icon">👁️</span>
+              <h2>AURA-SCAN REAL-TIME DETECTOR</h2>
+            </div>
+            <div class="card-tag">BIOMETRICS</div>
+          </div>
+          <div class="card-body biometrics-layout">
+            
+            <div class="video-container">
+              <!-- Hidden video stream -->
+              <video id="webcam-feed" width="320" height="240" autoplay playsinline muted style="display:none;"></video>
+              
+              <!-- Scanning neural mesh wireframe overlay -->
+              <div class="canvas-wrapper">
+                <canvas id="face-mesh-canvas" width="320" height="240"></canvas>
+                <div class="grid-crosshairs"></div>
+              </div>
+            </div>
+
+            <div class="telemetry-diagnostics">
+              <h3>TELEMETRY MATRIX</h3>
+              <div class="telemetry-metrics">
+                <div class="metric-row">
+                  <span class="metric-lbl">Attention Span</span>
+                  <div class="metric-bar-bg">
+                    <div class="metric-bar-fill fill-cyan" id="hud-focus-value-bar" style="width: 85%"></div>
+                  </div>
+                  <span class="metric-num text-cyan" id="hud-focus-value">85%</span>
+                </div>
+                <div class="metric-row">
+                  <span class="metric-lbl">Confusion Level</span>
+                  <div class="metric-bar-bg">
+                    <div class="metric-bar-fill fill-yellow" id="hud-confusion-value-bar" style="width: 10%"></div>
+                  </div>
+                  <span class="metric-num text-yellow" id="hud-confusion-value">10%</span>
+                </div>
+                <div class="metric-row">
+                  <span class="metric-lbl">Boredom Index</span>
+                  <div class="metric-bar-bg">
+                    <div class="metric-bar-fill fill-pink" id="hud-boredom-value-bar" style="width: 15%"></div>
+                  </div>
+                  <span class="metric-num text-pink" id="hud-boredom-value">15%</span>
+                </div>
+              </div>
+
+              <!-- Simulator Sliders for Testing/Grading without Camera -->
+              <div class="simulation-sliders-panel">
+                <h4>COGNITIVE STATE SIMULATOR</h4>
+                <div class="slider-group">
+                  <div class="slider-info">
+                    <label for="sim-focus">Attention Focus</label>
+                    <span id="sim-focus-val" class="text-cyan">85%</span>
+                  </div>
+                  <input type="range" id="sim-focus" min="10" max="100" value="85" class="hud-slider">
+                </div>
+                <div class="slider-group">
+                  <div class="slider-info">
+                    <label for="sim-confusion">Confusion Rate</label>
+                    <span id="sim-confusion-val" class="text-yellow">10%</span>
+                  </div>
+                  <input type="range" id="sim-confusion" min="0" max="100" value="10" class="hud-slider">
+                </div>
+                <div class="slider-group">
+                  <div class="slider-info">
+                    <label for="sim-boredom">Boredom / Fatigue</label>
+                    <span id="sim-boredom-val" class="text-pink">15%</span>
+                  </div>
+                  <input type="range" id="sim-boredom" min="0" max="100" value="15" class="hud-slider">
+                </div>
+              </div>
+
+              <div class="button-row mt-3">
+                <div style="display:flex; gap:8px; width:100%;">
+                  <button class="hud-btn btn-magenta" id="camera-toggle-btn">STOP WEBCAM</button>
+                  <button class="hud-btn btn-cyan" id="calibrate-btn">Calibrate</button>
+                  <label style="display:flex; align-items:center; gap:6px; margin-left:auto;">
+                    <input type="checkbox" id="video-visibility-toggle" checked>
+                    <span style="font-size:0.85rem; color:var(--text-secondary)">Show Video</span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="mini-telemetry mt-2">
+                <h5 style="margin:6px 0 4px 0;">Short-term Attention</h5>
+                <canvas id="attention-mini-canvas" width="220" height="48" style="border-radius:6px; background:rgba(0,0,0,0.06);"></canvas>
+                <div style="display:flex; gap:8px; margin-top:6px;">
+                  <button id="view-trend-btn" class="hud-btn btn-outline">View Trend</button>
+                  <button id="export-csv-btn" class="hud-btn btn-outline">Export CSV</button>
+                  <button id="export-png-btn" class="hud-btn btn-outline">Export PNG</button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- BOTTOM CARD: Adaptive Planner (Spaced Repetition + Mistake Matrix + Recommendations) -->
+        <section class="hud-card" id="planner-card">
+          <div class="card-header">
+            <div class="card-title">
+              <span class="title-icon">📅</span>
+              <h2>CHRONOS-PLANNER RETENTION CORE</h2>
+            </div>
+            <div class="card-tag">SPACED-REP</div>
+          </div>
+          <div class="card-body planner-tabs-container">
+            
+            <div class="planner-grid-split">
+              <!-- Left section: Spaced repetition cards -->
+              <div class="planner-srs-panel">
+                <h3>SPACED REPETITION STUDY DECK</h3>
+                <div id="srs-card-container">
+                  <!-- Injected Flashcard component -->
+                </div>
+              </div>
+
+              <!-- Right section: Real-time focus graph & recommendations -->
+              <div class="planner-analytics-panel">
+                <h3>ATTENTION TRACKING GRAPH</h3>
+                <canvas id="attention-history-canvas" height="110"></canvas>
+                
+                <h3 class="mt-3">DYNAMIC RECOMMENDATIONS</h3>
+                <div id="planner-recs">
+                  <!-- Dynamic recommendations injected here -->
+                </div>
+              </div>
+            </div>
+
+            <!-- Mistake Matrix: Logs incorrect responses -->
+            <div class="mistake-matrix-panel mt-3">
+              <h3>MISTAKE MATRIX DATABASE</h3>
+              <div class="table-wrapper">
+                <table class="matrix-table">
+                  <thead>
+                    <tr>
+                      <th>Topic</th>
+                      <th>Quiz Question & Error Log</th>
+                      <th>Urgency</th>
+                      <th class="text-right">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody id="mistake-matrix-tbody">
+                    <!-- Logged mistakes injected here -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+      </div>
+    </main>
+
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+
+  <!-- Trend modal for larger attention chart -->
+  <div id="trend-modal" style="position:fixed; inset:0; display:none; align-items:center; justify-content:center; background:rgba(0,0,0,0.6); z-index:9999;">
+    <div style="background:var(--card-bg); padding:16px; border-radius:8px; width:720px; max-width:95%;">
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:8px;">
+        <h3 style="margin:0;">Attention Trend</h3>
+        <div style="display:flex; gap:8px; align-items:center;">
+          <button id="download-trend-png" class="hud-btn btn-outline">Download PNG</button>
+          <button id="close-trend-modal" class="hud-btn btn-cyan">Close</button>
+        </div>
+      </div>
+      <canvas id="attention-large-canvas" width="680" height="240" style="width:100%; height:auto; background:rgba(0,0,0,0.04); border-radius:6px;"></canvas>
+    </div>
+  </div>
+</body>
+</html>
